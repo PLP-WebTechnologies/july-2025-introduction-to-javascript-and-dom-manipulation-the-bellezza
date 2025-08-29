@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Night — Watchlist</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- defer so the DOM is ready when script runs -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>🎬 Movie Night — Watchlist</h1>
+    <p class="lead">
+      Add movies you want to watch, mark them as watched, search, and filter.
+    </p>
+
+    <!-- Part 1 input area (variables + conditionals used in script) -->
+    <form id="addForm" class="card">
+      <label>
+        Title
+        <input id="titleInput" type="text" placeholder="e.g. Spirited Away" required/>
+      </label>
+      <label>
+        Year
+        <input id="yearInput" type="number" placeholder="e.g. 2001" min="1888" max="2100"/>
+      </label>
+      <button type="submit">Add Movie</button>
+      <small id="formHint" class="muted" aria-live="polite"></small>
+    </form>
+
+    <!-- Controls -->
+    <section class="controls">
+      <label>
+        Filter
+        <select id="filterSelect">
+          <option value="all">All</option>
+          <option value="watched">Watched</option>
+          <option value="unwatched">Unwatched</option>
+        </select>
+      </label>
+
+      <label>
+        Search
+        <input id="searchInput" type="search" placeholder="Type to filter by title…"/>
+      </label>
+
+      <button id="randomPickBtn" type="button" title="Pick a random movie from the current view">
+        🎲 Random Pick
+      </button>
+    </section>
+
+    <!-- Stats + result messages -->
+    <section class="stats">
+      <div id="statsText"></div>
+      <div id="randomResult" class="highlight" aria-live="polite"></div>
+    </section>
+
+    <!-- List -->
+    <ul id="movieList" class="list" aria-live="polite"></ul>
+  </main>
+</body>
+</html>
